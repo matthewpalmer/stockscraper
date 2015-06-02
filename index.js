@@ -23,7 +23,6 @@ function clean(data, callback) {
   string = string.replace(']','');
   string = string.replace('//','');
   var jsonBody = JSON.parse(string);
-  console.log(jsonBody);
   callback(null, jsonBody);
 }
 
