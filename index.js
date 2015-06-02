@@ -38,5 +38,5 @@ function scrape(market, ticker, callback) {
 module.exports = {
   get: get,
   clean: clean,
-  stockscraper: scrape
+  scrape: scrape
 };
