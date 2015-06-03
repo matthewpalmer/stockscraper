@@ -28,9 +28,8 @@ function clean(data, callback) {
 
 function scrape(market, ticker, callback) {
   get(market, ticker, function(err, data) {
-    clean(data, function(err, res) {
-      callback(err, res);
-    });
+    if (err) return callback(err);
+    clean(data, callback);
   });
 }
 
