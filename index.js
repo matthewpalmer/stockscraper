@@ -8,9 +8,9 @@ function get(market, ticker, callback) {
     baseStr = baseStr.concat(market,':', ticker);
 
     request(baseStr, function(err, res, body) {
-      if (err || res.statusCode != 200) {
+      if (err || res.statusCode !== 200) {
         console.log(res.statusCode);
-        throw new Error ('error scraping');
+        callback(new Error('Invalid request'))
       } else {
         callback(err, body);
       }
