@@ -90,3 +90,12 @@ describe('Index', function() {
     });
   });
 });
+
+describe('Integ', function() {
+  it('should fetch a response from google', function(done) {
+    stockscraper.scrape('NASDAQ', 'AAPL', function(err, res) {
+      expect(err).to.not.be.ok();
+      done();
+    });
+  });
+});
