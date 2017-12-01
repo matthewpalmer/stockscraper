@@ -4,7 +4,7 @@ function get(market, ticker, callback) {
   if (!ticker || !market) {
     throw new Error('invalid args');
   } else {
-    var baseStr = 'https://www.google.com/finance/info?&q=';
+    var baseStr = 'https://finance.google.com/finance?output=json&q=';
     baseStr = baseStr.concat(market,':', ticker);
 
     request(baseStr, function(err, res, body) {
@@ -19,11 +19,15 @@ function get(market, ticker, callback) {
 }
 
 function clean(data, callback) {
-  var string = data.replace('[','');
-  string = string.replace(']','');
-  string = string.replace('//','');
-  var jsonBody = JSON.parse(string);
-  callback(null, jsonBody);
+  // Strip leading '//' off data
+  var json = data.replace(/^\s*\/\//, '');
+  // data is returned as a 1-element array
+  var jsonBody = JSON.parse(json)[0];
+  if(jsonBody == null) {
+    callback(new Error('Not Found'));
+  } else {
+    callback(null, jsonBody);
+  }
 }
 
 function scrape(market, ticker, callback) {

@@ -22,7 +22,7 @@
     "url": "https://github.com/matthewpalmer/stockscraper/issues"
   },
   "dependencies": {
-    "request": "~2.27"
+    "request": "~2.83"
   },
   "devDependencies": {
     "mocha": "*",
