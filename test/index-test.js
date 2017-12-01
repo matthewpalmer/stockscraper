@@ -98,4 +98,10 @@ describe('Integ', function() {
       done();
     });
   });
+  it('should fail for a non-present stock', function(done) {
+    stockscraper.scrape('NASDAQ', 'EPIC', function(err, res) {
+      expect(err).to.eql(Error('Not Found'));
+      done();
+    });
+  });
 });

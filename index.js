@@ -23,7 +23,11 @@ function clean(data, callback) {
   var json = data.replace(/^\s*\/\//, '');
   // data is returned as a 1-element array
   var jsonBody = JSON.parse(json)[0];
-  callback(null, jsonBody);
+  if(jsonBody == null) {
+    callback(new Error('Not Found'));
+  } else {
+    callback(null, jsonBody);
+  }
 }
 
 function scrape(market, ticker, callback) {
