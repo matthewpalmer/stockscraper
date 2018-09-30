@@ -4,7 +4,7 @@ Requires request
 
     npm install stockscraper
 
-##Docs
+## Docs
 
     stockscraper.scrape(MARKET, TICKER, CALLBACK)
 
@@ -25,7 +25,7 @@ Response:
       ccol: 'chr'
     };
 
-##Example
+## Example
 ```js
 var stockscraper = require('stockscraper');
 stockscraper.scrape('NASDAQ', 'AAPL', function(err, data) {
